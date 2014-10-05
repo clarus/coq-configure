@@ -24,7 +24,7 @@ type install =
 
 exception Parsing_error
 
-(*let rec parse_string = parser
+let rec parse_string = parser
   | [< '' ' | '\n' | '\t' >] -> ""
   | [< 'c; s >] -> (String.make 1 c)^(parse_string s)
   | [< >] -> ""
@@ -40,11 +40,11 @@ and parse_args = parser
   | [< ''#'; s >] -> parse_args (parse_skip_comment s)
   | [< ''"'; str = parse_string2; s >] -> ("" ^ str) :: parse_args s
   | [< 'c; str = parse_string; s >] -> ((String.make 1 c) ^ str) :: (parse_args s)
-  | [< >] -> []*)
+  | [< >] -> []
 
 let parse f =
   let c = open_in f in
-  let res = (* parse_args (Stream.of_channel c) *) failwith "TODO" in
+  let res = parse_args (Stream.of_channel c) in
   close_in c;
   res
 

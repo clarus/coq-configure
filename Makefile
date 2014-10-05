@@ -1,5 +1,5 @@
 all:
-	ocamlbuild coqConfigure.native -use-ocamlfind -pkgs str
+	ocamlbuild coqConfigure.native -pp camlp5o.opt -use-ocamlfind -pkgs str
 
 clean:
 	ocamlbuild -clean
