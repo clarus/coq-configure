@@ -255,8 +255,8 @@ let where_put_doc = function
   "$(INSTALLDEFAULTROOT)"
 
 let install (vfiles,(mlifiles,ml4files,mlfiles,mllibfiles,mlpackfiles),_,sds) inc = function
-  |Project_file.NoInstall -> ()
-  |is_install ->
+  | Project_file.NoInstall -> ()
+  | is_install ->
     let not_empty = function |[] -> false |_::_ -> true in
     let cmofiles = List.rev_append mlpackfiles (List.rev_append mlfiles ml4files) in
     let cmifiles = List.rev_append mlifiles cmofiles in
