@@ -1,0 +1,4 @@
+description = "Generates makefiles for Coq projects. "
+archive(byte) = "coqConfigure.byte"
+archive(native) = "coqConfigure.native"
+version = "0.1"
